@@ -1,4 +1,4 @@
-package main.resources.unidadeI;
+package main.resources.recursive;
 
 import java.util.Scanner;
 
