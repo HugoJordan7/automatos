@@ -1,6 +1,8 @@
-package main.resources.unidadeI;
+package main.resources.recursive;
 
-public class AFD {
+import java.util.Random;
+
+public class AFNe {
 
     public boolean verify(String email){
         return initState(email, 0);
@@ -54,8 +56,18 @@ public class AFD {
 
     private boolean q5(String email, int i){
         char letraDoEmail = email.charAt(i);
-        if(letraDoEmail == 'm') return endState(email, i);
+        if(letraDoEmail == 'm') {
+            if(new Random().nextBoolean()){
+                return endState(email, i);
+            } else{
+                return q6(email, i);
+            }
+        }
         return false;
+    }
+
+    private boolean q6(String email, int i){
+        return endState(email, i);
     }
 
     private boolean endState(String email, int i){
