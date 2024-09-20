@@ -1,25 +1,23 @@
 package main.resources.transitions;
 
-import main.resources.recursive.AFD;
-
 import java.util.Scanner;
 
 public class Main {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public static AFD afd = new AFD();
+    public static CpfAFD afd = new CpfAFD();
 
     public static void main(String[] args) {
         String email = "";
         do {
-            System.out.print("Digite um email ou enter para parar: ");
+            System.out.print("Digite um CPF ou enter para parar: ");
             email = sc.nextLine();
             if(!email.isEmpty()) {
                 if(afd.verify(email)){
-                    System.out.println("\033[32m" + "Email válido!\n" + "\033[0m");
+                    System.out.println("\033[32m" + "CPF válido!\n" + "\033[0m");
                 }else {
-                    System.out.println("\033[31m" + "Email inválido!\n" + "\033[0m");
+                    System.out.println("\033[31m" + "CPF inválido!\n" + "\033[0m");
                 }
             }
         } while(!email.isEmpty());

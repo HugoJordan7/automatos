@@ -1,11 +1,9 @@
 package main.resources.transitions;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class CpfAFD {
-
-    private State initState;
-    private Set<State> finalStates;
 
     private State q0 = new State(0);
     private State q1 = new State(1);
@@ -23,8 +21,22 @@ public class CpfAFD {
     private State q13 = new State(13);
     private State q14 = new State(14);
 
-    // "." = 10 & "-" = 11
+    private State currentState;
+    private int stateIndex = 0;
+    private Set<State> finalStates = new HashSet<State>();
 
+    public CpfAFD(){
+        resetAFD();
+    }
+
+    private void resetAFD(){
+        currentState = q0;
+        finalStates.clear();
+        finalStates.add(q14);
+        stateIndex = 0;
+    }
+
+    // "." = 10 & "-" = 11
     private State[][] transition = {
             {q1,q1,q1,q1,q1,q1,q1,q1,q1,q1,null,null}, // q0
             {q2,q2,q2,q2,q2,q2,q2,q2,q2,q2,null,null}, // q1
@@ -43,6 +55,32 @@ public class CpfAFD {
             {null,null,null,null,null,null,null,null,null,null,null,null}, // q14
     };
 
+    public boolean verify(String palavra){
+        if (palavra.length() > 14) return false;
+        resetAFD();
+        for(int i = 0; i<palavra.length(); i++){
+            char c = palavra.charAt(i);
+            if(!alphabetContains(""+c)) return false;
+            int symbol = getSymbol(c);
+            currentState = transition[stateIndex][symbol];
+            if (i == palavra.length()-1 && !finalStates.contains(currentState)) return false;
+            stateIndex++;
+        }
+        return true;
+    }
 
+    private int getSymbol(char c){
+        if (c == '.') {
+            return 10;
+        } else if(c == '-') {
+            return 11;
+        } else {
+            return Integer.parseInt(""+c);
+        }
+    }
+
+    private boolean alphabetContains(String c){
+        return "0123456789.-".contains(c);
+    }
 
 }
