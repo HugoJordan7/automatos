@@ -6,7 +6,8 @@ public class Main {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public static CpfAFD afd = new CpfAFD();
+    public static CpfAutomaton afd = new CpfAFD();
+    public static CpfAutomaton afne = new CpfAFNe();
 
     public static void main(String[] args) {
         String email = "";
@@ -14,7 +15,7 @@ public class Main {
             System.out.print("Digite um CPF ou enter para parar: ");
             email = sc.nextLine();
             if(!email.isEmpty()) {
-                if(afd.verify(email)){
+                if(afne.verify(email)){
                     System.out.println("\033[32m" + "CPF válido!\n" + "\033[0m");
                 }else {
                     System.out.println("\033[31m" + "CPF inválido!\n" + "\033[0m");
