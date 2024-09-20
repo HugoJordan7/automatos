@@ -1,9 +1,11 @@
 package main.resources.transitions;
 
-import java.util.HashSet;
 import java.util.Set;
 
-public class CpfAFD extends AFD {
+public class CpfAFD {
+
+    private State initState;
+    private Set<State> finalStates;
 
     private State q0 = new State(0);
     private State q1 = new State(1);
@@ -42,15 +44,5 @@ public class CpfAFD extends AFD {
     };
 
 
-    @Override
-    State getInitialState() {
-        return q0;
-    }
 
-    @Override
-    Set<State> getFinalStates() {
-        Set<State> finalStates = new HashSet<>();
-        finalStates.add(q0);
-        return finalStates;
-    }
 }
