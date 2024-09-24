@@ -2,51 +2,21 @@ package main.resources.transitions;
 
 import java.util.*;
 
-public abstract class AFNe {
+public abstract class AFNe extends Automaton<State[][][]>{
 
-    protected State currentState;
-    protected int stateIndex = 0;
-    protected Set<State> finalStates = new HashSet<State>();
-    protected int limitWord;
-    protected String alphabet;
-    protected State[][][] transitionTable;
     protected State[][] epsilonTransitions;
 
-    public AFNe(){
-        initAFNe();
-    }
-
-    protected abstract State setInitState();
-    protected abstract int setLimitWord();
-    protected abstract Set<State> setFinalStates();
-    protected abstract String setAlphabet();
-    protected abstract State[][][] setTransitionTable();
     protected abstract State[][] setEpsilonTransitions();
 
-    protected void initAFNe(){
-        currentState = setInitState();
-        limitWord = setLimitWord();
-        finalStates = setFinalStates();
-        stateIndex = 0;
-        alphabet = setAlphabet();
-        transitionTable = setTransitionTable();
+    @Override
+    protected void initAutomaton() {
+        super.initAutomaton();
         epsilonTransitions = setEpsilonTransitions();
-    }
-
-    protected int getSymbol(char c){
-        for(int i = 0; i< alphabet.length(); i++){
-            if (alphabet.charAt(i) == c) return i;
-        }
-        return -1;
-    }
-
-    protected boolean alphabetContains(char c){
-        return alphabet.contains(""+c);
     }
 
     public boolean verify(String word) {
         if (word.length() > limitWord) return false;
-        initAFNe();
+        initAutomaton();
         Set<State> currentStates = new HashSet<>();
         currentStates.add(currentState);
         currentStates.addAll(epsilonClosure(currentState));
