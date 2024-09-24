@@ -27,21 +27,21 @@ public class CpfAFNe extends AFNe{
          State[][][] transitionTable = {
                  //Cada linha contem a lista de transições de um estado qualquer
                  //Cada coluna é referente a uma letra do alfabeto, exceto a última que é a coluna de transições vazias
-                {{q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, null, null, {}}, // q0
-                {{q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, null, null, {}}, // q1
-                {{q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, null, null, {}}, // q2
-                {null, null, null, null, null, null, null, null, null, null, {q4}, null, {}}, // q3
-                {{q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, null, null, {}}, // q4
-                {{q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, null, null, {}}, // q5
-                {{q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, null, null, {}}, // q6
-                {null, null, null, null, null, null, null, null, null, null, {q8}, null, {}}, // q7
-                {{q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, null, null, {}}, // q8
-                {{q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, null, null, {}}, // q9
-                {{q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, null, null, {}}, // q10
-                {null, null, null, null, null, null, null, null, null, null, null, {q12}, {}}, // q11
-                {{q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, null, null, {}}, // q12
-                {{q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, null, null, {}}, // q13
-                {null, null, null, null, null, null, null, null, null, null, null, null, {}}, // q14
+                {{q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, {q1}, null, null, null}, // q0
+                {{q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, {q2}, null, null, null}, // q1
+                {{q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, {q3}, null, null, null}, // q2
+                {null, null, null, null, null, null, null, null, null, null, {q4}, null, null}, // q3
+                {{q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, {q5}, null, null, null}, // q4
+                {{q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, {q6}, null, null, null}, // q5
+                {{q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, {q7}, null, null, null}, // q6
+                {null, null, null, null, null, null, null, null, null, null, {q8}, null, null}, // q7
+                {{q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, {q9}, null, null, null}, // q8
+                {{q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, {q10}, null, null, null}, // q9
+                {{q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, {q11}, null, null, null}, // q10
+                {null, null, null, null, null, null, null, null, null, null, null, {q12}, null}, // q11
+                {{q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, {q13}, null, null, null}, // q12
+                {{q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, {q14, q15}, null, null, null}, // q13
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}, // q14
                 {null, null, null, null, null, null, null, null, null, null, null, null, {q14}}, // q15
         };
         return transitionTable;
