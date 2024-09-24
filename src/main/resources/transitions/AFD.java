@@ -12,6 +12,16 @@ public abstract class AFD {
     protected String alphabet;
     protected State[][] transitionTable;
 
+    public AFD(){
+        initAFD();
+    }
+
+    protected abstract State setInitState();
+    protected abstract int setLimitWord();
+    protected abstract Set<State> setFinalStates();
+    protected abstract String setAlphabet();
+    protected abstract State[][] setTransitionTable();
+
     public boolean verify(String word){
         if (word.length() > limitWord) return false;
         initAFD();
@@ -45,11 +55,5 @@ public abstract class AFD {
     protected boolean alphabetContains(char c){
         return alphabet.contains(""+c);
     }
-
-    protected abstract State setInitState();
-    protected abstract int setLimitWord();
-    protected abstract Set<State> setFinalStates();
-    protected abstract String setAlphabet();
-    protected abstract State[][] setTransitionTable();
 
 }

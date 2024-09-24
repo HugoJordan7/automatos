@@ -12,6 +12,17 @@ public abstract class AFNe {
     protected State[][][] transitionTable;
     protected State[][] epsilonTransitions;
 
+    public AFNe(){
+        initAFNe();
+    }
+
+    protected abstract State setInitState();
+    protected abstract int setLimitWord();
+    protected abstract Set<State> setFinalStates();
+    protected abstract String setAlphabet();
+    protected abstract State[][][] setTransitionTable();
+    protected abstract State[][] setEpsilonTransitions();
+
     protected void initAFNe(){
         currentState = setInitState();
         limitWord = setLimitWord();
@@ -19,6 +30,7 @@ public abstract class AFNe {
         stateIndex = 0;
         alphabet = setAlphabet();
         transitionTable = setTransitionTable();
+        epsilonTransitions = setEpsilonTransitions();
     }
 
     protected int getSymbol(char c){
@@ -31,13 +43,6 @@ public abstract class AFNe {
     protected boolean alphabetContains(char c){
         return alphabet.contains(""+c);
     }
-
-    protected abstract State setInitState();
-    protected abstract int setLimitWord();
-    protected abstract Set<State> setFinalStates();
-    protected abstract String setAlphabet();
-    protected abstract State[][][] setTransitionTable();
-    protected abstract State[][] setEpsilonTransitions();
 
     public boolean verify(String word) {
         if (word.length() > limitWord) return false;

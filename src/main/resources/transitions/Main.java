@@ -6,7 +6,7 @@ public class Main {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public static AFD afd = new CpfAFD();
+    public static CpfAFD afd = new CpfAFD();
     public static AFNe afne = new CpfAFNe();
 
     public static void main(String[] args) {
