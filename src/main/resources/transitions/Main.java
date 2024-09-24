@@ -9,6 +9,8 @@ public class Main {
     public static AFD afd = new CpfAFD();
     public static AFNe afne = new CpfAFNe();
 
+    public static AFNe testAFNe = new TestAFNe();
+
     public static void main(String[] args) {
 
         String email = "";
@@ -16,7 +18,7 @@ public class Main {
             System.out.print("Digite um CPF ou enter para parar: ");
             email = sc.nextLine();
             if(!email.isEmpty()) {
-                if(afd.verify(email)){
+                if(afne.verify(email)){
                     System.out.println("\033[32m" + "CPF válido!\n" + "\033[0m");
                 }else {
                     System.out.println("\033[31m" + "CPF inválido!\n" + "\033[0m");

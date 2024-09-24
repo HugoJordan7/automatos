@@ -16,11 +16,11 @@ public abstract class Automaton<T> {
         initAutomaton();
     }
 
+    protected abstract T setTransitionTable();
     protected abstract State setInitState();
     protected abstract int setLimitWord();
     protected abstract Set<State> setFinalStates();
     protected abstract String setAlphabet();
-    protected abstract T setTransitionTable();
 
     public abstract boolean verify(String word);
 

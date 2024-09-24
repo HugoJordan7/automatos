@@ -4,16 +4,6 @@ import java.util.*;
 
 public abstract class AFNe extends Automaton<State[][][]>{
 
-    protected State[][] epsilonTransitions;
-
-    protected abstract State[][] setEpsilonTransitions();
-
-    @Override
-    protected void initAutomaton() {
-        super.initAutomaton();
-        epsilonTransitions = setEpsilonTransitions();
-    }
-
     public boolean verify(String word) {
         if (word.length() > limitWord) return false;
         initAutomaton();
@@ -45,7 +35,9 @@ public abstract class AFNe extends Automaton<State[][][]>{
     private Set<State> epsilonClosure(State state) {
         Set<State> closure = new HashSet<>();
         closure.add(state);
-        for (State nextState : epsilonTransitions[state.getNumberName()]) {
+        State[] epsilonTransitions = transitionTable[state.getNumberName()][alphabet.length()];
+        if (epsilonTransitions == null) return closure;
+        for (State nextState : epsilonTransitions) {
             if (!closure.contains(nextState)) {
                 closure.addAll(epsilonClosure(nextState));
             }
